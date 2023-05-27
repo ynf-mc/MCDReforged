@@ -81,7 +81,7 @@ class AbstractMinecraftHandler(AbstractServerHandler, ABC):
 
 	@classmethod
 	def _verify_player_name(cls, name: str):
-		return re.fullmatch(r'\w+', name) is not None
+		return re.fullmatch(r'[.a-zA-Z0-9_]{2,16}', name) is not None
 
 	def parse_server_stdout(self, text: str):
 		result = super().parse_server_stdout(text)
